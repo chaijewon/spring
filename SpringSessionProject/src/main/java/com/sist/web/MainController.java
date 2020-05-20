@@ -10,4 +10,9 @@ public class MainController {
     {
     	return "main/list";
     }
+    @RequestMapping("main/detail.do")
+    public String main_detail()
+    {
+    	return "main/detail";
+    }
 }
