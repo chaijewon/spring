@@ -37,6 +37,21 @@ public class MusicController {
 	   System.out.println(result);
 	   return result;
    }
+   @RequestMapping("main/detail_data.do")
+   public String detail_data(int mno)
+   {
+	   MusicVO vo=dao.musicDetailData(mno);
+	   JSONObject obj=new JSONObject();// [{mno:1,title:''},{}..
+	   obj.put("mno", vo.getMno());
+	   obj.put("title", vo.getTitle());
+	   obj.put("singer", vo.getSinger());
+	   obj.put("album", vo.getAlbum());
+	   obj.put("state", vo.getState());
+	   obj.put("idcrement", vo.getIdcrement());
+	   obj.put("poster", vo.getPoster());
+	   obj.put("key", vo.getKey());
+	   return obj.toJSONString();
+   }
 }
 
 
